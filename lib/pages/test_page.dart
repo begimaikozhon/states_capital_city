@@ -1,4 +1,6 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:states_capital_city/app/app.dart';
 import 'package:states_capital_city/components/appbar_title_widget.dart';
 import 'package:states_capital_city/components/slider_widget.dart';
 import 'package:states_capital_city/components/variant_widget.dart';
@@ -61,6 +63,7 @@ class _TestPageState extends State<TestPage> {
             VariantWidget(
               answer: widget.quetion[index].answer,
               onTap: (isTrue) async {
+                AudioPlayer().play(AssetSource('notes/zvuk.mp3'));
                 if (index + 1 == widget.quetion.length || lives == 0) {
                   showDialog(
                     context: context,
@@ -92,6 +95,21 @@ class _TestPageState extends State<TestPage> {
                             },
                             child: const Text(
                               'Начать снова',
+                              style: TextStyle(
+                                fontSize: 24,
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const MyApp()));
+                            },
+                            child: const Text(
+                              'Меню',
                               style: TextStyle(
                                 fontSize: 24,
                               ),

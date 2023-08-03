@@ -1,7 +1,9 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:states_capital_city/components/about_app.dart';
 import 'package:states_capital_city/components/custom_card.dart';
 import 'package:states_capital_city/components/help_app.dart';
+import 'package:states_capital_city/components/share.dart';
 import 'package:states_capital_city/constants/app_colors.dart';
 import 'package:states_capital_city/constants/app_text.dart';
 import 'package:states_capital_city/models/continents.dart';
@@ -39,7 +41,9 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                AudioPlayer().play(AssetSource('notes/zvuk.mp3'));
+              },
               icon: const Icon(
                 Icons.volume_up,
                 color: AppColors.yellow,
@@ -57,8 +61,15 @@ class _MyAppState extends State<MyApp> {
               itemBuilder: (context) => [
                 PopupMenuItem(
                   child: InkWell(
-                    onTap: () async {
-                      //   Share.share('поделиться');
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const Share();
+                          },
+                        ),
+                      );
                     },
                     child: const Row(
                       children: [
@@ -141,6 +152,7 @@ class _MyAppState extends State<MyApp> {
                     final continent = continents[index];
                     return CustomCard(
                       onTap: () {
+                        AudioPlayer().play(AssetSource('notes/zvuk.mp3'));
                         if (continent.question != null) {
                           Navigator.push(
                             context,
