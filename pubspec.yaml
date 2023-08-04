@@ -65,6 +65,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/images/geografia.png
     - assets/images/europe/
     - assets/images/asia/
     - assets/images/severnai_amerika/

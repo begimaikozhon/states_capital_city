@@ -37,7 +37,9 @@ class AboutApp extends StatelessWidget {
                   },
                 );
 
+                // ignore: deprecated_member_use
                 if (await canLaunch(emailLaunchUri.toString())) {
+                  // ignore: deprecated_member_use
                   await launch(emailLaunchUri.toString());
                 } else {
                   // Handle the case where the email app couldn't be opened.

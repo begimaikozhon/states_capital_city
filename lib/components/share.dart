@@ -4,6 +4,7 @@ class Share extends StatefulWidget {
   const Share({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ShareState createState() => _ShareState();
 }
 
@@ -12,7 +13,7 @@ class _ShareState extends State<Share> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(),
+      body: const Center(),
     );
   }
 }
